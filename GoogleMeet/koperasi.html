@@ -1,10 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <title>Koperasi</title>
+    <title>My Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css"><script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style type="text/css">
+        .top-border { border-top: 1px dashed black; }
+    </style>
 <script>
 $(document).ready(function(){
 let x = 0;
@@ -19,17 +22,23 @@ let x = 0;
         $("#print").text(" ");
         var a = parseInt($("#number-1").val())
         var b = parseInt($("#number-2").val())
-            if(b < 7) {
+            if(b < 7 ) {
                 x = 2;
-            } else if(b < 12) {
+            } else if(b >= 7 && b <= 12) {
                 x = 1.5;
             } else {
                 x = 1;
             }
         var i = parseInt(a + a * x / 100 * b )
+        console.log(i)
         $("#print").append(i+" ");
-    let ccl = i / b;
+
+        var ccl = i/b;
     ccl = ccl.toFixed(0);
+
+
+    $("#tbBody").append("<tr class='top-border'><td>"+a+"</td><td>"+b+"</td></tr><tr><th>Bulan</th><th>Cicilan</th></tr>")
+
     for(var z = 1; z<=b; z++){
     $("#tbBody").append("<tr><td>"+z+"</td><td>"+ccl+"</td></tr>")
     }
@@ -57,7 +66,7 @@ $("#print").text(' ');
   </div>
   <div class="ui-body ui-body-a">
     <form>
-     <label for="number-1">Jumlah pinjaman: </label>
+     <label for="number-1">Jumlah pinjaman</label>
      <input type="number" data-clear-btn="true" name="number-1" id="number-1" value="">
      <label for="number-2">Lama pinjaman</label>
      <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
@@ -85,12 +94,7 @@ $("#print").text(' ');
 <h3 id="jml"> </h3>
 <h3 id="lm"> </h3>
 <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive">
-  <thead>
-    <tr>
-      <th>Bulan</th>
-      <th>Cicilan</th>
-    </tr>
-  </thead>
+
   <tbody id="tbBody">
 
   </tbody>
@@ -100,12 +104,12 @@ $("#print").text(' ');
 
 
 <button class="ui-btn ui-btn-inline" id="switchp">Switch Page</button>
-        </div><!-- /content -->
+        </div>
  
         <div data-role="footer">
             <h4>Alfonsus Enrico - C14180067</h4>
-        </div><!-- /footer -->
+        </div>
  
-    </div><!-- /page -->
+    </div>
 </body>
 </html>
